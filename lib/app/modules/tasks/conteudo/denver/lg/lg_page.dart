@@ -2,10 +2,11 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/denver/charts/chart_lg.dart';
 import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/denver/lg/lg_store.dart';
 import 'package:flutter/material.dart';
+import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/denver/mf/mf_page.dart';
 
 import '../charts/chart_ps.dart';
 import '../charts/charts.dart';
-import '../components.dart';
+import '../../components.dart';
 
 class LgPage extends StatefulWidget {
   final String title;
@@ -46,7 +47,7 @@ class LgPageState extends State<LgPage> {
                                 Container(
                                   width: MediaQuery.of(context).size.width * .9,
                                   height:
-                                      MediaQuery.of(context).size.height * 2.85,
+                                      MediaQuery.of(context).size.height * 3.6,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(15),
@@ -58,41 +59,48 @@ class LgPageState extends State<LgPage> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Image.asset(
-                                            'images-dev/ps/A1 - color.jpg'),
+                                            'images-dev/linguagem/C1 - color.jpg'),
                                         DenverRadioLG(
                                           fase: 'LG',
-                                          text: 'Observa o rosto?',
+                                          text: 'Reage ao som do sino? (Movimenta os olhos na direção do barulho ou alguma expressão corporal?)',
                                           index: 1,
                                         ),
-                                        Image.asset(
-                                            'images-dev/ps/A2 - color.jpg'),
+                                        Image.asset('images-dev/linguagem/C2 - color.jpg'),
                                         DenverRadioLG(
                                           fase: 'LG',
-                                          text:
-                                              'Sorri quando conversa com você?',
+                                          text: 'Emite algum som?',
                                           index: 2,
                                         ),
-                                        Image.asset(
-                                            'images-dev/ps/A3 - color.jpg'),
+                                        Image.asset('images-dev/linguagem/C3 - color.jpg'),
                                         DenverRadioLG(
                                           fase: 'LG',
-                                          text: 'Sorri espontaneamente?',
+                                          text: 'Fala OOH/AAH?',
                                           index: 3,
                                         ),
 
-                                        Image.asset(
-                                            'images-dev/ps/A4 - color.jpg'),
+                                        Image.asset('images-dev/linguagem/C4 - color.jpg'),
                                         DenverRadioLG(
                                             fase: 'LG',
-                                            text: 'Observa sua própria mão?',
+                                            text: 'Riso/Gargalhada?',
                                             index: 4),
 
-                                        Image.asset(
-                                            'images-dev/ps/A5 - color.jpg'),
+                                        Image.asset('images-dev/linguagem/C5 - color.jpg'),
                                         DenverRadioLG(
                                           fase: 'LG',
-                                          text: "Tenta alcançar um brinquedo?",
+                                          text: "Grita?",
                                           index: 5,
+                                        ),
+                                        Image.asset('images-dev/linguagem/C6 - color.jpg'),
+                                        DenverRadioLG(
+                                          fase: 'LG',
+                                          text: "Vira a cabeça para algum som? (Vira para ambos os lados?)",
+                                          index: 6,
+                                        ),
+                                        Image.asset('images-dev/linguagem/C7 - color.jpg'),
+                                         DenverRadioLG(
+                                          fase: 'LG',
+                                          text: "Vira a cabeça quando chama o nome? (Vira para ambos os lados?)",
+                                          index: 7,
                                         ),
 
                                         ElevatedButton(
@@ -101,7 +109,7 @@ class LgPageState extends State<LgPage> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: ((context) =>
-                                                          const Charts())));
+                                                          const MfPage())));
                                             },
                                             child: const Text('grafico'))
                                         // Center(child: ElevatedButton(

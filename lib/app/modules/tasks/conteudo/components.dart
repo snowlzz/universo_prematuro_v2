@@ -83,7 +83,7 @@ class _DenverRadioState extends State<DenverRadio> {
                           .update({
                         'hab${widget.index}': 'sim',
                         'qtd_sim': pStore.qtdRespSim,
-                      }).then((value) => value);
+                      }).then((value) => null);
                     },
                   )
                 ],
@@ -108,7 +108,7 @@ class _DenverRadioState extends State<DenverRadio> {
                           .update({
                         'hab${widget.index}': 'nao',
                         'qtd_nao': pStore.qtdRespNao,
-                      }).then((value) => value);
+                      }).then((value) => null);
                     },
                   )
                 ],
@@ -134,7 +134,7 @@ class _DenverRadioState extends State<DenverRadio> {
                           .update({
                         'hab${widget.index}': 'par',
                         'qtd_par': pStore.qtdRespPar,
-                      }).then((value) => value);
+                      }).then((value) => null);
                       // pStore.savePSDenver(widget.fase!, 'parcial', 1);
                     },
                   )
@@ -160,7 +160,7 @@ class _DenverRadioState extends State<DenverRadio> {
                           .update({
                         'hab${widget.index}': 'recusa',
                         'qtd_recusa': pStore.qtdRespRec,
-                      }).then((value) => value);
+                      }).then((value) => null);
                       // pStore.savePSDenver(widget.fase!, 'recusa', 1);
                     },
                   )
@@ -248,7 +248,7 @@ class _DenverRadioLGState extends State<DenverRadioLG> {
                           .update({
                         'hab${widget.index}': 'sim',
                         'qtd_sim': pStore.qtdRespSim,
-                      }).then((value) => value);
+                      }).then((value) => null);
                     },
                   )
                 ],
@@ -273,7 +273,7 @@ class _DenverRadioLGState extends State<DenverRadioLG> {
                           .update({
                         'hab${widget.index}': 'nao',
                         'qtd_nao': pStore.qtdRespNao,
-                      }).then((value) => value);
+                      }).then((value) => null);
                     },
                   )
                 ],
@@ -299,7 +299,7 @@ class _DenverRadioLGState extends State<DenverRadioLG> {
                           .update({
                         'hab${widget.index}': 'par',
                         'qtd_par': pStore.qtdRespPar,
-                      }).then((value) => value);
+                      }).then((value) => null);
                       // pStore.savePSDenver(widget.fase!, 'parcial', 1);
                     },
                   )
@@ -325,7 +325,7 @@ class _DenverRadioLGState extends State<DenverRadioLG> {
                           .update({
                         'hab${widget.index}': 'recusa',
                         'qtd_recusa': pStore.qtdRespRec,
-                      }).then((value) => value);
+                      }).then((value) => null);
                       // pStore.savePSDenver(widget.fase!, 'recusa', 1);
                     },
                   )
@@ -413,7 +413,7 @@ class _DenverRadioMFState extends State<DenverRadioMF> {
                           .update({
                         'hab${widget.index}': 'sim',
                         'qtd_sim': pStore.qtdRespSim,
-                      }).then((value) => value);
+                      }).then((value) => null);
                     },
                   )
                 ],
@@ -438,7 +438,7 @@ class _DenverRadioMFState extends State<DenverRadioMF> {
                           .update({
                         'hab${widget.index}': 'nao',
                         'qtd_nao': pStore.qtdRespNao,
-                      }).then((value) => value);
+                      }).then((value) => null);
                     },
                   )
                 ],
@@ -464,7 +464,7 @@ class _DenverRadioMFState extends State<DenverRadioMF> {
                           .update({
                         'hab${widget.index}': 'par',
                         'qtd_par': pStore.qtdRespPar,
-                      }).then((value) => value);
+                      }).then((value) => null);
                       // pStore.savePSDenver(widget.fase!, 'parcial', 1);
                     },
                   )
@@ -490,7 +490,7 @@ class _DenverRadioMFState extends State<DenverRadioMF> {
                           .update({
                         'hab${widget.index}': 'recusa',
                         'qtd_recusa': pStore.qtdRespRec,
-                      }).then((value) => value);
+                      }).then((value) => null);
                       // pStore.savePSDenver(widget.fase!, 'recusa', 1);
                     },
                   )
@@ -579,7 +579,7 @@ class _DenverRadioMGState extends State<DenverRadioMG> {
                           .update({
                         'hab${widget.index}': 'sim',
                         'qtd_sim': pStore.qtdRespSim,
-                      }).then((value) => value);
+                      }).then((value) => null);
                     },
                   )
                 ],
@@ -604,7 +604,7 @@ class _DenverRadioMGState extends State<DenverRadioMG> {
                           .update({
                         'hab${widget.index}': 'nao',
                         'qtd_nao': pStore.qtdRespNao,
-                      }).then((value) => value);
+                      }).then((value) => null);
                     },
                   )
                 ],
@@ -630,7 +630,7 @@ class _DenverRadioMGState extends State<DenverRadioMG> {
                           .update({
                         'hab${widget.index}': 'par',
                         'qtd_par': pStore.qtdRespPar,
-                      }).then((value) => value);
+                      }).then((value) => null);
                       // pStore.savePSDenver(widget.fase!, 'parcial', 1);
                     },
                   )
@@ -656,7 +656,7 @@ class _DenverRadioMGState extends State<DenverRadioMG> {
                           .update({
                         'hab${widget.index}': 'recusa',
                         'qtd_recusa': pStore.qtdRespRec,
-                      }).then((value) => value);
+                      }).then((value) => null);
                       // pStore.savePSDenver(widget.fase!, 'recusa', 1);
                     },
                   )

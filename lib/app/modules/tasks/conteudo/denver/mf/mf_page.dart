@@ -1,8 +1,9 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/denver/mf/mf_store.dart';
 import 'package:flutter/material.dart';
+import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/denver/mg/mg_page.dart';
 
-import '../components.dart';
+import '../../components.dart';
 
 class MfPage extends StatefulWidget {
   final String title;
@@ -10,10 +11,11 @@ class MfPage extends StatefulWidget {
   @override
   MfPageState createState() => MfPageState();
 }
+
 class MfPageState extends State<MfPage> {
   final MfStore store = Modular.get();
 
- @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
@@ -43,7 +45,7 @@ class MfPageState extends State<MfPage> {
                                 Container(
                                   width: MediaQuery.of(context).size.width * .9,
                                   height:
-                                      MediaQuery.of(context).size.height * 2.85,
+                                      MediaQuery.of(context).size.height * 3.8,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(15),
@@ -55,62 +57,63 @@ class MfPageState extends State<MfPage> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Image.asset(
-                                            'images-dev/ps/A1 - color.jpg'),
+                                            'images-dev/mf-adap/B1 - color.jpg'),
                                         DenverRadioMF(
-                                          fase: 'LG',
-                                          text: 'Observa o rosto?',
-                                          index: 1,
-                                        ),
+                                            index: 1,
+                                            text:
+                                                'Acompanha, com o olho ou a cabeça um objeto partindo da lateral do corpo (esquerdo e direito) até o centro (até o nariz)?',
+                                            fase: "MF"),
                                         Image.asset(
-                                            'images-dev/ps/A2 - color.jpg'),
+                                            'images-dev/mf-adap/B2 - color.jpg'),
                                         DenverRadioMF(
-                                          fase: 'LG',
-                                          text:
-                                              'Sorri quando conversa com você?',
-                                          index: 2,
-                                        ),
+                                            index: 2,
+                                            text:
+                                                'Acompanha, com o olho ou cabeça um objeto partindo da lateral até passar do centro?',
+                                            fase: "MF"),
                                         Image.asset(
-                                            'images-dev/ps/A3 - color.jpg'),
+                                            'images-dev/mf-adap/B3 - color.jpg'),
                                         DenverRadioMF(
-                                          fase: 'LG',
-                                          text: 'Sorri espontaneamente?',
-                                          index: 3,
-                                        ),
+                                            index: 3,
+                                            text: 'Segura um chocalho?',
+                                            fase: "MF"),
+                                        Image.asset(
+                                            'images-dev/mf-adap/B4 - color.jpg'),
+                                        DenverRadioMF(
+                                            index: 4,
+                                            text: 'Juntas as duas mãos?',
+                                            fase: "MF"),
+                                        Image.asset(
+                                            'images-dev/mf-adap/B5 - color.jpg'),
+                                        DenverRadioMF(
+                                            index: 5,
+                                            text:
+                                                'Acompanha, com o olho ou cabeça um objeto partindo da lateral até o outro lado, 180° (de um ombro ao outro)?',
+                                            fase: "MF"),
+                                        Image.asset(
+                                            'images-dev/mf-adap/B6 - color.jpg'),
+                                        DenverRadioMF(
+                                            index: 6,
+                                            text:
+                                                'Olha para um objeto pequeno? Exemplo: tampa de uma caneta?',
+                                            fase: "MF"),
+                                        Image.asset(
+                                            'images-dev/mf-adap/B7 - color.jpg'),
+                                        DenverRadioMF(
+                                            index: 7,
+                                            text:
+                                                'Move as mãos ou braços para alcançar um objeto pequeno sobre uma superfície?',
+                                            fase: "MF"),
 
-                                        Image.asset(
-                                            'images-dev/ps/A4 - color.jpg'),
-                                        DenverRadioMF(
-                                            fase: 'LG',
-                                            text: 'Observa sua própria mão?',
-                                            index: 4),
-
-                                        Image.asset(
-                                            'images-dev/ps/A5 - color.jpg'),
-                                        DenverRadioMF(
-                                          fase: 'LG',
-                                          text: "Tenta alcançar um brinquedo?",
-                                          index: 5,
-                                        ),
-
-                                        // ElevatedButton(
-                                        //     onPressed: () {
-                                        //       Navigator.push(
-                                        //           context,
-                                        //           MaterialPageRoute(
-                                        //               builder: ((context) =>
-                                        //                   const ChartMG())));
-                                        //     },
-                                        //     child: const Text('grafico'))
-                                        // Center(child: ElevatedButton(
-                                        //   onPressed: (){
-                                        //     Navigator.push(
-                                        //       context, MaterialPageRoute(
-                                        //         builder: (context) => const DenverLGPage(),
-                                        //       )
-                                        //     );
-                                        //   },
-                                        //   child: const Text("Proxima avaliação"),
-                                        // ),)
+                                        ElevatedButton(
+                                            onPressed: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: ((context) =>
+                                                          const MgPage())));
+                                            },
+                                            child: const Text('grafico'))
+                                        
                                       ],
                                     ),
                                   ),

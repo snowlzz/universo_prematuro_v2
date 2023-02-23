@@ -2,7 +2,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/denver/mg/mg_store.dart';
 import 'package:flutter/material.dart';
 
-import '../components.dart';
+import '../../components.dart';
+import '../charts/charts.dart';
 
 class MgPage extends StatefulWidget {
   final String title;
@@ -10,6 +11,7 @@ class MgPage extends StatefulWidget {
   @override
   MgPageState createState() => MgPageState();
 }
+
 class MgPageState extends State<MgPage> {
   final MgStore store = Modular.get();
 
@@ -43,7 +45,7 @@ class MgPageState extends State<MgPage> {
                                 Container(
                                   width: MediaQuery.of(context).size.width * .9,
                                   height:
-                                      MediaQuery.of(context).size.height * 2.85,
+                                      MediaQuery.of(context).size.height * 5.5,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(15),
@@ -55,62 +57,83 @@ class MgPageState extends State<MgPage> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Image.asset(
-                                            'images-dev/ps/A1 - color.jpg'),
+                                            'images-dev/motor-grosseiro/D1 - color.jpg'),
                                         DenverRadioMG(
-                                          fase: 'LG',
-                                          text: 'Observa o rosto?',
-                                          index: 1,
-                                        ),
+                                            index: 1,
+                                            text:
+                                                'Movimenta os dois braços e as duas pernas?',
+                                            fase: "MG"),
                                         Image.asset(
-                                            'images-dev/ps/A2 - color.jpg'),
+                                            'images-dev/motor-grosseiro/D2 - color.jpg'),
                                         DenverRadioMG(
-                                          fase: 'LG',
-                                          text:
-                                              'Sorri quando conversa com você?',
-                                          index: 2,
-                                        ),
+                                            index: 2,
+                                            text:
+                                                'Levanta e retorna a cabeça da superfície quando esta deitado(a) de barriga para baixo?',
+                                            fase: "MG"),
                                         Image.asset(
-                                            'images-dev/ps/A3 - color.jpg'),
+                                            'images-dev/motor-grosseiro/D3 - color.jpg'),
                                         DenverRadioMG(
-                                          fase: 'LG',
-                                          text: 'Sorri espontaneamente?',
-                                          index: 3,
-                                        ),
-
+                                            index: 3,
+                                            text:
+                                                'Levanta e mantém a cabeça da superfície quando esta deitado(a) de barriga para baixo?',
+                                            fase: "MG"),
                                         Image.asset(
-                                            'images-dev/ps/A4 - color.jpg'),
+                                            'images-dev/motor-grosseiro/D4 - color.jpg'),
                                         DenverRadioMG(
-                                            fase: 'LG',
-                                            text: 'Observa sua própria mão?',
-                                            index: 4),
-
+                                            index: 4,
+                                            text:
+                                                'Levanta e mantém a cabeça e o peito da superfície quando esta deitado(a), mantendo o movimento com o apoio dos braços?',
+                                            fase: "MG"),
                                         Image.asset(
-                                            'images-dev/ps/A5 - color.jpg'),
+                                            'images-dev/motor-grosseiro/D5 - color.jpg'),
                                         DenverRadioMG(
-                                          fase: 'LG',
-                                          text: "Tenta alcançar um brinquedo?",
-                                          index: 5,
-                                        ),
-
-                                        // ElevatedButton(
-                                        //     onPressed: () {
-                                        //       Navigator.push(
-                                        //           context,
-                                        //           MaterialPageRoute(
-                                        //               builder: ((context) =>
-                                        //                   const ChartLG())));
-                                        //     },
-                                        //     child: const Text('grafico'))
-                                        // Center(child: ElevatedButton(
-                                        //   onPressed: (){
-                                        //     Navigator.push(
-                                        //       context, MaterialPageRoute(
-                                        //         builder: (context) => const DenverLGPage(),
-                                        //       )
-                                        //     );
-                                        //   },
-                                        //   child: const Text("Proxima avaliação"),
-                                        // ),)
+                                            index: 5,
+                                            text: 'Sentada, sutenta a cabeça?',
+                                            fase: "MG"),
+                                        Image.asset(
+                                            'images-dev/motor-grosseiro/D6 - color.jpg'),
+                                        DenverRadioMG(
+                                            index: 6,
+                                            text:
+                                                'Em pé, com apoio, sustenta seu peso nas pernas?',
+                                            fase: "MG"),
+                                        Image.asset(
+                                            'images-dev/motor-grosseiro/D7 - color.jpg'),
+                                        DenverRadioMG(
+                                            index: 7,
+                                            text:
+                                                'Eleva o peito com o apoio das mãos e cotovelo extendido?',
+                                            fase: "MG"),
+                                        Image.asset(
+                                            'images-dev/motor-grosseiro/D8 - color.jpg'),
+                                        DenverRadioMG(
+                                            index: 8,
+                                            text:
+                                                'Vira sozinho(a), da posição de barriga para baixo para cima, ou vice-versa?',
+                                            fase: "MG"),
+                                        Image.asset(
+                                            'images-dev/motor-grosseiro/D9 - color.jpg'),
+                                        DenverRadioMG(
+                                            index: 9,
+                                            text:
+                                                'Segurando em suas mãos para sentar, mantém a cabeça firme acompanhando o movimento?',
+                                            fase: "MG"),
+                                        Image.asset(
+                                            'images-dev/motor-grosseiro/D10 - color.jpg'),
+                                        DenverRadioMG(
+                                            index: 10,
+                                            text:
+                                                'De pé, sustenta o corpo (segurando)?',
+                                            fase: "MG"),
+                                        ElevatedButton(
+                                            onPressed: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: ((context) =>
+                                                          const Charts())));
+                                            },
+                                            child: const Text('grafico'))
                                       ],
                                     ),
                                   ),

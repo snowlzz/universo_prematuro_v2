@@ -24,18 +24,16 @@ class _ChartsState extends State<Charts> {
       appBar: AppBar(
         title: Text('Gráficos de Desenvolvimento')
       ),
-      body: Observer(builder: (_) {
-      return PageView(
+      body: PageView(
         controller: controller,
         scrollDirection: Axis.horizontal,
-        children: [
+        children: const <Widget>[
           ChartPS(),
           ChartLG(),
           ChartMF(),
           ChartMG(),
         ],
-      );
-    }));
+      ));
   }
 }
 

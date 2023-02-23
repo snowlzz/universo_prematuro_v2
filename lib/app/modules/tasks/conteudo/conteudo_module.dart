@@ -13,6 +13,17 @@ import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/primeiro/tarefa
 import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/primeiro/tarefas/tarefa7_page.dart';
 import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/primeiro/tarefas/tarefa8_page.dart';
 import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/primeiro/tarefas/tarefa9_page.dart';
+import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/segundo/segundo_page.dart';
+import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/segundo/segundo_store.dart';
+import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/segundo/tarefas/tarefa10_page.dart';
+import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/segundo/tarefas/tarefa11_page.dart';
+import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/segundo/tarefas/tarefa12_page.dart';
+import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/segundo/tarefas/tarefa13_page.dart';
+import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/segundo/tarefas/tarefa14_page.dart';
+import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/segundo/tarefas/tarefa15_page.dart';
+import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/segundo/tarefas/tarefa16_page.dart';
+import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/segundo/tarefas/tarefa17_page.dart';
+import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/segundo/tarefas/tarefa18_page.dart';
 
 import 'denver/ps/ps_page.dart';
 import 'denver/ps/ps_store.dart';
@@ -57,7 +68,7 @@ class ConteudoModule extends Module {
     Bind.lazySingleton((i) => PrimeiroStore()),
     Bind.singleton((i) => PessoalSocialStore() ),
 
-    // Bind.lazySingleton((i) => SegundoStore()),
+    Bind.lazySingleton((i) => SegundoStore()),
     // Bind.lazySingleton((i) => TerceiroStore()),
     // Bind.lazySingleton((i) => QuartoStore()),
   ];
@@ -66,7 +77,7 @@ class ConteudoModule extends Module {
   final List<ModularRoute> routes = [
     ChildRoute('/', child: (_, args) => const ConteudoPage()),
     ChildRoute('/primeiro', child: (_, args) => const PrimeiroPage()),
-    // ChildRoute('/segundo', child: (_, args) => const SegundoPage()),
+    ChildRoute('/segundo', child: (_, args) => const SegundoPage()),
     // ChildRoute('/terceiro', child: (_, args) => const TerceiroPage()),
     // ChildRoute('/quarto', child: (_, args) => const QuartoPage()),
     ChildRoute('/t1', child: (_, args) => const Tarefa1Page()),
@@ -80,15 +91,15 @@ class ConteudoModule extends Module {
     ChildRoute('/t9', child: (_, args) => const Tarefa9Page()),
     ChildRoute('/ps', child: (_, args) => const PessoalSocialPage()),
 
-    // ChildRoute('/t10', child: (_, args) => const Tarefa10Page()),
-    // ChildRoute('/t11', child: (_, args) => const Tarefa11Page()),
-    // ChildRoute('/t12', child: (_, args) => const Tarefa12Page()),
-    // ChildRoute('/t13', child: (_, args) => const Tarefa13Page()),
-    // ChildRoute('/t14', child: (_, args) => const Tarefa14Page()),
-    // ChildRoute('/t15', child: (_, args) => const Tarefa15Page()),
-    // ChildRoute('/t16', child: (_, args) => const Tarefa16Page()),
-    // ChildRoute('/t17', child: (_, args) => const Tarefa17Page()),
-    // ChildRoute('/t18', child: (_, args) => const Tarefa18Page()),
+    ChildRoute('/t10', child: (_, args) => const Tarefa10Page()),
+    ChildRoute('/t11', child: (_, args) => const Tarefa11Page()),
+    ChildRoute('/t12', child: (_, args) => const Tarefa12Page()),
+    ChildRoute('/t13', child: (_, args) => const Tarefa13Page()),
+    ChildRoute('/t14', child: (_, args) => const Tarefa14Page()),
+    ChildRoute('/t15', child: (_, args) => const Tarefa15Page()),
+    ChildRoute('/t16', child: (_, args) => const Tarefa16Page()),
+    ChildRoute('/t17', child: (_, args) => const Tarefa17Page()),
+    ChildRoute('/t18', child: (_, args) => const Tarefa18Page()),
     // ChildRoute('/t19', child: (_, args) => const Tarefa19Page()),
     // ChildRoute('/t20', child: (_, args) => const Tarefa20Page()),
     // ChildRoute('/t21', child: (_, args) => const Tarefa21Page()),

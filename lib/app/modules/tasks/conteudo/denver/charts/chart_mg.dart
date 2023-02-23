@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../denver_bar_chart/denver_bar_chart_page_ps.dart';
 
@@ -105,7 +106,9 @@ class _ChartMGState extends State<ChartMG> {
                             backgroundColor: MaterialStateProperty.all(Colors.green),
                             fixedSize: MaterialStateProperty.all(const Size.fromWidth(200))
                           ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Modular.to.pushReplacementNamed('/nav/');
+                            },
                             child: const Text('PÁGINA INICIAL', style: TextStyle(color: Colors.white),)
                             
                         ),

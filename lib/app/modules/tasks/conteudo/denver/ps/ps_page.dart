@@ -3,7 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/denver/charts/chart_ps.dart';
 
 
-import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/denver/components.dart';
+import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/components.dart';
 import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/denver/lg/lg_page.dart';
 
 
