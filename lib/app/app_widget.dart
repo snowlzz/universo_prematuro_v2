@@ -5,10 +5,11 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Flutter Slidy',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      title: 'Universo Prematuro',
+      theme: ThemeData(primarySwatch: Colors.green, useMaterial3: true, colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.green)),
       routerDelegate: Modular.routerDelegate,
       routeInformationParser: Modular.routeInformationParser,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

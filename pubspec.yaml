@@ -38,6 +38,18 @@ dependencies:
   flutter_modular: ^6.0.0-alpha.5
   mobx: ^2.1.4
   flutter_mobx: ^2.0.6+5
+  firebase_core: ^2.7.0
+  cloud_firestore: ^4.4.3
+  build_runner: ^2.3.3
+  firebase_auth: ^4.2.9
+  carousel_slider: ^4.2.1
+  firebase_storage: ^11.0.14
+  image_picker: ^0.8.6+3
+  file_picker: ^5.2.5
+  mask_text_input_formatter: ^2.4.0
+  flutter_web_browser: ^0.17.1
+  fl_chart: ^0.61.0
+
 
 dev_dependencies:
   flutter_test:
@@ -50,7 +62,7 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
   mobx_codegen: ^2.1.1
-  modular_test: ^3.0.1
+  # modular_test: ^2a.0.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -64,9 +76,14 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - images/
+    - images/cartilha/
+    - images-dev/
+    - images-dev/ps/
+    - images-dev/mf-adap/
+    - images-dev/motor-grosseiro/
+    - images-dev/linguagem/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -93,3 +110,9 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+scripts:
+  mobx: flutter pub run build_runner watch --delete-conflicting-outputs --use-polling-watcher
+  reload: flutter clean cache && flutter pub get
+  clean: flutter clean cache
+  get: flutter pub get

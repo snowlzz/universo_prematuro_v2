@@ -2,13 +2,14 @@ import 'package:mobx/mobx.dart';
 
 part 'home_store.g.dart';
 
-class HomeStore = HomeStoreBase with _$HomeStore;
+class HomeStore = _HomeStoreBase with _$HomeStore;
+abstract class _HomeStoreBase with Store {
 
-abstract class HomeStoreBase with Store {
   @observable
-  int counter = 0;
+  int value = 0;
 
-  Future<void> increment() async {
-    counter = counter + 1;
-  }
+  @action
+  void increment() {
+    value++;
+  } 
 }
