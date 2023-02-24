@@ -5,10 +5,12 @@ import 'package:flutter_modular/flutter_modular.dart';
 // import 'modules/cartilha/cartilha_module.dart';
 // import 'modules/growth/material/tip/tip_module.dart';
 // import 'modules/growth/material/tip/tip_store.dart';
+import 'modules/cartilha/cartilha_Page.dart';
 import 'modules/cartilha/cartilha_module.dart';
 import 'modules/growth/growth_module.dart';
 import 'modules/growth/growth_store.dart';
 import 'modules/growth/material/tip/tip_module.dart';
+import 'modules/growth/material/tip/tip_store.dart';
 import 'modules/home/home_module.dart';
 import 'modules/home/home_store.dart';
 // import 'modules/home/nav/nav_module.dart';
@@ -20,9 +22,11 @@ import 'modules/initial/auth/auth_store.dart';
 import 'modules/initial/initial_module.dart';
 import 'modules/initial/initial_store.dart';
 import 'modules/news/news_module.dart';
-import 'modules/producoes/producoes_module.dart';
+import 'modules/news/news_store.dart';
+// import 'modules/producoes/producoes_module.dart';
 import 'modules/profile/edit/edit_module.dart';
 import 'modules/profile/edit/edit_store.dart';
+import 'modules/profile/edit/photo_store.dart';
 import 'modules/profile/photo_album/photoAlbum_module.dart';
 import 'modules/profile/photo_album/photoAlbum_store.dart';
 import 'modules/profile/profile_module.dart';
@@ -30,6 +34,7 @@ import 'modules/profile/profile_store.dart';
 import 'modules/profile/video_album/videoAlbum_module.dart';
 import 'modules/profile/video_album/videoAlbum_store.dart';
 import 'modules/projeto/projeto_module.dart';
+import 'modules/projeto/projeto_store.dart';
 import 'modules/tasks/conteudo/conteudo_module.dart';
 import 'modules/tasks/conteudo/conteudo_store.dart';
 import 'modules/tasks/conteudo/denver/lg/lg_module.dart';
@@ -78,13 +83,13 @@ class AppModule extends Module {
     Bind.lazySingleton((i) => VideoAlbumStore()),
     Bind.lazySingleton((i) => TasksStore()),
     Bind.lazySingleton((i) => ConteudoStore()),
-    // Bind.lazySingleton((i) => PhotoStore()),
+    Bind.lazySingleton((i) => PhotoStore()),
     Bind.lazySingleton((i) => GrowthStore()),
-    // Bind.lazySingleton((i) => TipStore()),
-    // Bind.lazySingleton((i) => ProducoesStore()),
-    // Bind.lazySingleton((i) => ProjetoStore()),
-    // Bind.lazySingleton((i) => const CartilhaPage()),
-    // Bind.lazySingleton((i) => NewsStore()),
+    Bind.lazySingleton((i) => TipStore()),
+    Bind.lazySingleton((i) => ProducoesStore()),
+    Bind.lazySingleton((i) => ProjetoStore()),
+    Bind.lazySingleton((i) => const CartilhaPage()),
+    Bind.lazySingleton((i) => NewsStore()),
     Bind.lazySingleton((i) => PessoalSocialStore()),
     Bind.lazySingleton((i) => LgStore()), 
     Bind.lazySingleton((i) => MgStore()), 
@@ -117,4 +122,7 @@ class AppModule extends Module {
 
   ];
 
+}
+
+class ProducoesStore {
 }

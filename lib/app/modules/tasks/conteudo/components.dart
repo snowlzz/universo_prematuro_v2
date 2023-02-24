@@ -6,6 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/denver/ps/ps_store.dart';
 
+import 'denver/lg/lg_store.dart';
+import 'denver/mf/mf_store.dart';
+import 'denver/mg/mg_store.dart';
+
 enum SingingCharacter { sim, nao, parcial, recusa }
 
 class DenverRadio extends StatefulWidget {
@@ -189,7 +193,7 @@ class _DenverRadioLGState extends State<DenverRadioLG> {
   Map? answers;
 
 
-  PessoalSocialStore pStore = Modular.get();
+  LgStore pStore = Modular.get();
   FirebaseAuth auth = FirebaseAuth.instance;
 
   @override
@@ -354,7 +358,7 @@ class _DenverRadioMFState extends State<DenverRadioMF> {
   Map? answers;
 
 
-  PessoalSocialStore pStore = Modular.get();
+  MfStore pStore = Modular.get();
   FirebaseAuth auth = FirebaseAuth.instance;
 
   @override
@@ -520,7 +524,7 @@ class _DenverRadioMGState extends State<DenverRadioMG> {
   Map? answers;
 
 
-  PessoalSocialStore pStore = Modular.get();
+  MgStore pStore = Modular.get();
   FirebaseAuth auth = FirebaseAuth.instance;
 
   @override

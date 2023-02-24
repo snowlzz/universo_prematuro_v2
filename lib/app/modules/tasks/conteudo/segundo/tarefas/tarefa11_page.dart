@@ -180,6 +180,7 @@ final TasksStore tStore = Modular.get();
                                                   fontStyle: FontStyle.italic)),
                                           const SizedBox(height: 30),
                                           ElevatedButton.icon(
+    style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.green)),
                                           label: const Text(
                                             'Seguem as tarefas',
                                             style: TextStyle(

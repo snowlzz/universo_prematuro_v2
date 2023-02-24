@@ -3,6 +3,8 @@ import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/segundo/segundo
 import 'package:flutter/material.dart';
 import 'package:universo_prematuro_v2/app/modules/tasks/conteudo/segundo/tarefas/denver/avaliacao_page.dart';
 
+import '../conteudo_store.dart';
+
 class SegundoPage extends StatefulWidget {
   final String title;
   const SegundoPage({Key? key, this.title = 'SegundoPage'}) : super(key: key);
@@ -144,6 +146,8 @@ class SegundoPageState extends State<SegundoPage> {
                     )),
                 ElevatedButton(
                   onPressed: (){
+                    final ConteudoStore cStore = Modular.get();
+                    cStore.answersToNull();
                     Navigator.push(
                       context, MaterialPageRoute(builder: ((context) => const AvaliacaoPage()))
                     );

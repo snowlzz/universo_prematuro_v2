@@ -35,7 +35,7 @@ class MfPageState extends State<MfPage> {
                                 const SizedBox(height: 20),
                                 const Center(
                                     child: Text(
-                                  "Avaliação Pessoal - Social",
+                                  "Avaliação Motor Fino",
                                   style: TextStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.w600,
@@ -112,7 +112,7 @@ class MfPageState extends State<MfPage> {
                                                       builder: ((context) =>
                                                           const MgPage())));
                                             },
-                                            child: const Text('grafico'))
+                                            child: const Text('Próxima Avaliação'))
                                         
                                       ],
                                     ),

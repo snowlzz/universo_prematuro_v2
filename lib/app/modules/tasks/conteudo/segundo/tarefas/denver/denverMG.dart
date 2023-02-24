@@ -40,7 +40,7 @@ class DenverMGState extends State<DenverMGPage> {
                 children: [
                   const SizedBox(height: 20),
                   const Center(child: Text(
-                    "Avaliação Avaliação Motor Grosseiro",
+                    "Avaliação Avaliação Motor Grosso",
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.w600,
@@ -92,7 +92,7 @@ class DenverMGState extends State<DenverMGPage> {
                                 )
                               );
                             },
-                            child: const Text("Proxima avaliação"),
+                            child: const Text("Gráfico de Desenvolvimento"),
                           ),)
                       ],),
                     ),

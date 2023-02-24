@@ -21,7 +21,10 @@ class Tarefa9PageState extends State<Tarefa9Page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Tarefa 9",style: TextStyle(fontWeight: FontWeight.w800, color: Colors.white),),
+          title: const Text(
+            "Tarefa 9",
+            style: TextStyle(fontWeight: FontWeight.w800, color: Colors.white),
+          ),
           centerTitle: true,
           elevation: 0,
           backgroundColor: Colors.green,
@@ -73,28 +76,8 @@ class Tarefa9PageState extends State<Tarefa9Page> {
                                                   color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 1.0)),
-                                          child: Image.asset(
-                                              'images/static1.png'),
-                                        ),
-                                        Container(
-                                          //height: 100,
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: const Color.fromARGB(
-                                                      255, 101, 188, 89),
-                                                  width: 1.0)),
-                                          child: Image.asset(
-                                              'images/static2.png'),
-                                        ),
-                                        Container(
-                                          //height: 100,
-                                          decoration: BoxDecoration(
-                                              border: Border.all(
-                                                  color: const Color.fromARGB(
-                                                      255, 101, 188, 89),
-                                                  width: 1.0)),
-                                          child: Image.asset(
-                                              'images/static3.png'),
+                                          child:
+                                              Image.asset('images/static1.png'),
                                         ),
                                         Container(
                                           //height: 100,
@@ -104,7 +87,7 @@ class Tarefa9PageState extends State<Tarefa9Page> {
                                                       255, 101, 188, 89),
                                                   width: 1.0)),
                                           child:
-                                              Image.asset('images/Gif1.gif'),
+                                              Image.asset('images/static2.png'),
                                         ),
                                         Container(
                                           //height: 100,
@@ -114,7 +97,7 @@ class Tarefa9PageState extends State<Tarefa9Page> {
                                                       255, 101, 188, 89),
                                                   width: 1.0)),
                                           child:
-                                              Image.asset('images/Gif2.gif'),
+                                              Image.asset('images/static3.png'),
                                         ),
                                         Container(
                                           //height: 100,
@@ -123,8 +106,7 @@ class Tarefa9PageState extends State<Tarefa9Page> {
                                                   color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 1.0)),
-                                          child:
-                                              Image.asset('images/Gif3.gif'),
+                                          child: Image.asset('images/Gif1.gif'),
                                         ),
                                         Container(
                                           //height: 100,
@@ -133,8 +115,7 @@ class Tarefa9PageState extends State<Tarefa9Page> {
                                                   color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 1.0)),
-                                          child:
-                                              Image.asset('images/Gif4.gif'),
+                                          child: Image.asset('images/Gif2.gif'),
                                         ),
                                         Container(
                                           //height: 100,
@@ -143,8 +124,7 @@ class Tarefa9PageState extends State<Tarefa9Page> {
                                                   color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 1.0)),
-                                          child:
-                                              Image.asset('images/Gif5.gif'),
+                                          child: Image.asset('images/Gif3.gif'),
                                         ),
                                         Container(
                                           //height: 100,
@@ -153,8 +133,25 @@ class Tarefa9PageState extends State<Tarefa9Page> {
                                                   color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 1.0)),
-                                          child:
-                                              Image.asset('images/Gif6.gif'),
+                                          child: Image.asset('images/Gif4.gif'),
+                                        ),
+                                        Container(
+                                          //height: 100,
+                                          decoration: BoxDecoration(
+                                              border: Border.all(
+                                                  color: const Color.fromARGB(
+                                                      255, 101, 188, 89),
+                                                  width: 1.0)),
+                                          child: Image.asset('images/Gif5.gif'),
+                                        ),
+                                        Container(
+                                          //height: 100,
+                                          decoration: BoxDecoration(
+                                              border: Border.all(
+                                                  color: const Color.fromARGB(
+                                                      255, 101, 188, 89),
+                                                  width: 1.0)),
+                                          child: Image.asset('images/Gif6.gif'),
                                         ),
                                       ],
                                     ),
@@ -205,7 +202,11 @@ class Tarefa9PageState extends State<Tarefa9Page> {
                                           top: 20.0),
                                       child: Align(
                                         alignment: Alignment.bottomRight,
-                                        child: ElevatedButton.icon(style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.green)),
+                                        child: ElevatedButton.icon(
+                                          style: ButtonStyle(
+                                              backgroundColor:
+                                                  MaterialStateProperty.all(
+                                                      Colors.green)),
                                           label: const Text(
                                             'Seguem as tarefas',
                                             style: TextStyle(
@@ -219,10 +220,9 @@ class Tarefa9PageState extends State<Tarefa9Page> {
                                           ),
                                           onPressed: () {
                                             Navigator.of(context).push(
-                                                    MaterialPageRoute(
-                                                      builder: ((context) => const TaskNines())
-                                                    )
-                                                  );
+                                                MaterialPageRoute(
+                                                    builder: ((context) =>
+                                                        const TaskNines())));
                                           },
                                         ),
                                       ),
@@ -251,26 +251,29 @@ class _TaskNinesState extends State<TaskNines> {
   @override
   Widget build(BuildContext context) {
     FirebaseAuth auth = FirebaseAuth.instance;
-      tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV9").then((l){
-        if(l.length == 0){
-          for(int i = 1; i<6;i++){
-            Task t = Task();
-            t.user = auth.currentUser!.uid;
-            t.task = 'TASK$i';
-            t.group = 'DEV9';
-            t.status = 'I';
-            tStore.task = 'TASK$i';
-            tStore.group = 'DEV9';
-            tStore.status = 'I';
-            t.date = DateTime.now().toString();
+    tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV9").then((l) {
+      if (l.length == 0) {
+        for (int i = 1; i < 6; i++) {
+          Task t = Task();
+          t.user = auth.currentUser!.uid;
+          t.task = 'TASK$i';
+          t.group = 'DEV9';
+          t.status = 'I';
+          tStore.task = 'TASK$i';
+          tStore.group = 'DEV9';
+          tStore.status = 'I';
+          t.date = DateTime.now().toString();
 
-            // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
-          }
+          // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
         }
-      });
+      }
+    });
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Tarefa 9",style: TextStyle(fontWeight: FontWeight.w800, color: Colors.white),),
+        title: const Text(
+          "Tarefa 9",
+          style: TextStyle(fontWeight: FontWeight.w800, color: Colors.white),
+        ),
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.green,

@@ -22,7 +22,10 @@ class Tarefa2PageState extends State<Tarefa2Page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Tarefa 2",style: TextStyle(fontWeight: FontWeight.w800, color: Colors.white),),
+          title: const Text(
+            "Tarefa 2",
+            style: TextStyle(fontWeight: FontWeight.w800, color: Colors.white),
+          ),
           centerTitle: true,
           elevation: 0,
           backgroundColor: Colors.green,

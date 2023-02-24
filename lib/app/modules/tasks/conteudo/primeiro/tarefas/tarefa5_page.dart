@@ -22,7 +22,10 @@ class Tarefa5PageState extends State<Tarefa5Page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Tarefa 5",style: TextStyle(fontWeight: FontWeight.w800, color: Colors.white),),
+          title: const Text(
+            "Tarefa 5",
+            style: TextStyle(fontWeight: FontWeight.w800, color: Colors.white),
+          ),
           centerTitle: true,
           elevation: 0,
           backgroundColor: Colors.green,
@@ -77,8 +80,7 @@ class Tarefa5PageState extends State<Tarefa5Page> {
                                                   color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 3.0)),
-                                          child:
-                                              Image.asset('images/Gif1.gif'),
+                                          child: Image.asset('images/Gif1.gif'),
                                         ),
                                         Container(
                                           decoration: BoxDecoration(
@@ -86,8 +88,7 @@ class Tarefa5PageState extends State<Tarefa5Page> {
                                                   color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 3.0)),
-                                          child:
-                                              Image.asset('images/Gif3.gif'),
+                                          child: Image.asset('images/Gif3.gif'),
                                         ),
                                       ],
                                     ),
@@ -222,7 +223,11 @@ class Tarefa5PageState extends State<Tarefa5Page> {
                                                 top: 20.0),
                                             child: Align(
                                               alignment: Alignment.bottomRight,
-                                              child: ElevatedButton.icon(style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.green)),
+                                              child: ElevatedButton.icon(
+                                                style: ButtonStyle(
+                                                    backgroundColor:
+                                                        MaterialStateProperty
+                                                            .all(Colors.green)),
                                                 label: const Text(
                                                   'Seguem as tarefas',
                                                   style: TextStyle(
@@ -237,10 +242,9 @@ class Tarefa5PageState extends State<Tarefa5Page> {
                                                 ),
                                                 onPressed: () {
                                                   Navigator.of(context).push(
-                                                    MaterialPageRoute(
-                                                      builder: ((context) => const TaskFive())
-                                                    )
-                                                  );
+                                                      MaterialPageRoute(
+                                                          builder: ((context) =>
+                                                              const TaskFive())));
                                                 },
                                               ),
                                             ),
@@ -273,26 +277,29 @@ class _TaskFiveState extends State<TaskFive> {
   @override
   Widget build(BuildContext context) {
     FirebaseAuth auth = FirebaseAuth.instance;
-      tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV5").then((l){
-        if(l.length == 0){
-          for(int i = 1; i<6;i++){
-            Task t = Task();
-            t.user = auth.currentUser!.uid;
-            t.task = 'TASK$i';
-            t.group = 'DEV5';
-            t.status = 'I';
-            tStore.task = 'TASK$i';
-            tStore.group = 'DEV5';
-            tStore.status = 'I';
-            t.date = DateTime.now().toString();
+    tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV5").then((l) {
+      if (l.length == 0) {
+        for (int i = 1; i < 6; i++) {
+          Task t = Task();
+          t.user = auth.currentUser!.uid;
+          t.task = 'TASK$i';
+          t.group = 'DEV5';
+          t.status = 'I';
+          tStore.task = 'TASK$i';
+          tStore.group = 'DEV5';
+          tStore.status = 'I';
+          t.date = DateTime.now().toString();
 
-            // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
-          }
+          // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
         }
-      });
+      }
+    });
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Tarefa 5",style: TextStyle(fontWeight: FontWeight.w800, color: Colors.white),),
+        title: const Text(
+          "Tarefa 5",
+          style: TextStyle(fontWeight: FontWeight.w800, color: Colors.white),
+        ),
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.green,
@@ -320,8 +327,7 @@ class _TaskFiveState extends State<TaskFive> {
                         ]),
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
-                      child: Column(
-                        children: [
+                      child: Column(children: [
                         speechPerson(),
                         const SizedBox(
                           height: 40.0,
@@ -353,7 +359,7 @@ class _TaskFiveState extends State<TaskFive> {
                         const SizedBox(
                           height: 10.0,
                         ),
-                        Radin(task:'DEV5TASK1'),
+                        Radin(task: 'DEV5TASK1'),
 
                         const SizedBox(
                           height: 60.0,
@@ -378,7 +384,7 @@ class _TaskFiveState extends State<TaskFive> {
                         const SizedBox(
                           height: 10.0,
                         ),
-                        Radin(task:'DEV5TASK2'),
+                        Radin(task: 'DEV5TASK2'),
 
                         const SizedBox(
                           height: 60.0,
@@ -397,13 +403,14 @@ class _TaskFiveState extends State<TaskFive> {
                         const SizedBox(
                           height: 10.0,
                         ),
-                        Radin(task:'DEV5TASK3'),
+                        Radin(task: 'DEV5TASK3'),
 
                         const SizedBox(
                           height: 60.0,
                         ),
                         textCTRST(
-                          stg1: '\u2055 Com ${store.controllerKidName.text} deitado ',
+                          stg1:
+                              '\u2055 Com ${store.controllerKidName.text} deitado ',
                           stg2: 'de barriga para cima',
                           stg3:
                               ' você poderá movimentar o brinquedo de um lado para outro, '
@@ -417,7 +424,7 @@ class _TaskFiveState extends State<TaskFive> {
                         const SizedBox(
                           height: 10.0,
                         ),
-                        Radin(task:'DEV5TASK4'),
+                        Radin(task: 'DEV5TASK4'),
 
                         const SizedBox(
                           height: 60.0,
@@ -448,7 +455,7 @@ class _TaskFiveState extends State<TaskFive> {
                         const SizedBox(
                           height: 10.0,
                         ),
-          ]),
+                      ]),
                     ),
                   ),
                 ),

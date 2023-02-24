@@ -22,7 +22,10 @@ class Tarefa8PageState extends State<Tarefa8Page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Tarefa 8",style: TextStyle(fontWeight: FontWeight.w800, color: Colors.white),),
+          title: const Text(
+            "Tarefa 8",
+            style: TextStyle(fontWeight: FontWeight.w800, color: Colors.white),
+          ),
           centerTitle: true,
           elevation: 0,
           backgroundColor: Colors.green,
@@ -80,8 +83,7 @@ class Tarefa8PageState extends State<Tarefa8Page> {
                                                   color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 3.0)),
-                                          child:
-                                              Image.asset('images/Gif3.gif'),
+                                          child: Image.asset('images/Gif3.gif'),
                                         ),
                                         Container(
                                           //margin: EdgeInsets.symmetric(vertical: 10.0),
@@ -92,8 +94,7 @@ class Tarefa8PageState extends State<Tarefa8Page> {
                                                   color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 3.0)),
-                                          child:
-                                              Image.asset('images/Gif5.gif'),
+                                          child: Image.asset('images/Gif5.gif'),
                                         ),
                                       ],
                                     ),
@@ -228,7 +229,11 @@ class Tarefa8PageState extends State<Tarefa8Page> {
                                                 top: 20.0),
                                             child: Align(
                                               alignment: Alignment.bottomRight,
-                                              child: ElevatedButton.icon(style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.green)),
+                                              child: ElevatedButton.icon(
+                                                style: ButtonStyle(
+                                                    backgroundColor:
+                                                        MaterialStateProperty
+                                                            .all(Colors.green)),
                                                 label: const Text(
                                                   'Seguem as tarefas',
                                                   style: TextStyle(
@@ -243,10 +248,9 @@ class Tarefa8PageState extends State<Tarefa8Page> {
                                                 ),
                                                 onPressed: () {
                                                   Navigator.of(context).push(
-                                                    MaterialPageRoute(
-                                                      builder: ((context) => const TaskEights())
-                                                    )
-                                                  );
+                                                      MaterialPageRoute(
+                                                          builder: ((context) =>
+                                                              const TaskEights())));
                                                 },
                                               ),
                                             ),
@@ -278,23 +282,23 @@ class _TaskEightsState extends State<TaskEights> {
   @override
   Widget build(BuildContext context) {
     FirebaseAuth auth = FirebaseAuth.instance;
-      tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV8").then((l){
-        if(l.length == 0){
-          for(int i = 1; i<6;i++){
-            Task t = Task();
-            t.user = auth.currentUser!.uid;
-            t.task = 'TASK$i';
-            t.group = 'DEV8';
-            t.status = 'I';
-            tStore.task = 'TASK$i';
-            tStore.group = 'DEV8';
-            tStore.status = 'I';
-            t.date = DateTime.now().toString();
+    tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV8").then((l) {
+      if (l.length == 0) {
+        for (int i = 1; i < 6; i++) {
+          Task t = Task();
+          t.user = auth.currentUser!.uid;
+          t.task = 'TASK$i';
+          t.group = 'DEV8';
+          t.status = 'I';
+          tStore.task = 'TASK$i';
+          tStore.group = 'DEV8';
+          tStore.status = 'I';
+          t.date = DateTime.now().toString();
 
-            // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
-          }
+          // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
         }
-      });
+      }
+    });
     return Scaffold(
       appBar: AppBar(
         title: const Text("Tarefa 8"),
@@ -349,7 +353,7 @@ class _TaskEightsState extends State<TaskEights> {
                       const SizedBox(
                         height: 10.0,
                       ),
-                      Radin(task:'DEV8TASK1'),
+                      Radin(task: 'DEV8TASK1'),
 
                       const SizedBox(
                         height: 60.0,
@@ -376,7 +380,7 @@ class _TaskEightsState extends State<TaskEights> {
                       const SizedBox(
                         height: 10.0,
                       ),
-                      Radin(task:'DEV8TASK2'),
+                      Radin(task: 'DEV8TASK2'),
 
                       const SizedBox(
                         height: 60.0,
@@ -394,7 +398,7 @@ class _TaskEightsState extends State<TaskEights> {
                       const SizedBox(
                         height: 10.0,
                       ),
-                      Radin(task:'DEV8TASK3'),
+                      Radin(task: 'DEV8TASK3'),
 
                       const SizedBox(
                         height: 60.0,
@@ -421,7 +425,7 @@ class _TaskEightsState extends State<TaskEights> {
                       const SizedBox(
                         height: 10.0,
                       ),
-                      Radin(task:'DEV8TASK4'),
+                      Radin(task: 'DEV8TASK4'),
 
                       const SizedBox(
                         height: 60.0,

@@ -111,7 +111,7 @@ class LgPageState extends State<LgPage> {
                                                       builder: ((context) =>
                                                           const MfPage())));
                                             },
-                                            child: const Text('grafico'))
+                                            child: const Text('Próxima Avaliação'))
                                         // Center(child: ElevatedButton(
                                         //   onPressed: (){
                                         //     Navigator.push(

@@ -113,7 +113,7 @@ class _PessoalSocialPageState extends State<PessoalSocialPage> {
                                                       builder: ((context) =>
                                                           const LgPage())));
                                             },
-                                            child: const Text('grafico'))
+                                            child: const Text('Próxima Avaliação'))
                                         // Center(child: ElevatedButton(
                                         //   onPressed: (){
                                         //     Navigator.push(

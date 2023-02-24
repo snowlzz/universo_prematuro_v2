@@ -284,6 +284,7 @@ final TasksStore tStore = Modular.get();
                                             child: Align(
                                               alignment: Alignment.bottomRight,
                                               child: ElevatedButton.icon(
+    style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.green)),
                                                 label: const Text(
                                                   'Seguem as tarefas',
                                                   style: TextStyle(

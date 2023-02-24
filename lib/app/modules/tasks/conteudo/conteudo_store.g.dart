@@ -32,6 +32,14 @@ mixin _$ConteudoStore on _ConteudoStoreBase, Store {
     return _$createDenverDataAsyncAction.run(() => super.createDenverData());
   }
 
+  late final _$answersToNullAsyncAction =
+      AsyncAction('_ConteudoStoreBase.answersToNull', context: context);
+
+  @override
+  Future<void> answersToNull() {
+    return _$answersToNullAsyncAction.run(() => super.answersToNull());
+  }
+
   @override
   String toString() {
     return '''

@@ -35,7 +35,7 @@ class MgPageState extends State<MgPage> {
                                 const SizedBox(height: 20),
                                 const Center(
                                     child: Text(
-                                  "Avaliação Pessoal - Social",
+                                  "Avaliação Motor Grosso",
                                   style: TextStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.w600,
@@ -133,7 +133,7 @@ class MgPageState extends State<MgPage> {
                                                       builder: ((context) =>
                                                           const Charts())));
                                             },
-                                            child: const Text('grafico'))
+                                            child: const Text('Gráfico de desenvolvimento'))
                                       ],
                                     ),
                                   ),

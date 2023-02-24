@@ -22,7 +22,10 @@ class Tarefa3PageState extends State<Tarefa3Page> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Tarefa 3",style: TextStyle(fontWeight: FontWeight.w800, color: Colors.white),),
+          title: const Text(
+            "Tarefa 3",
+            style: TextStyle(fontWeight: FontWeight.w800, color: Colors.white),
+          ),
           centerTitle: true,
           elevation: 0,
           backgroundColor: Colors.green,
@@ -85,8 +88,7 @@ class Tarefa3PageState extends State<Tarefa3Page> {
                                                     255, 101, 188, 89),
                                                 width: 3.0,
                                               )),
-                                          child:
-                                              Image.asset('images/Gif5.gif'),
+                                          child: Image.asset('images/Gif5.gif'),
                                         ),
                                         Container(
                                           decoration: BoxDecoration(
@@ -96,8 +98,8 @@ class Tarefa3PageState extends State<Tarefa3Page> {
                                                   color: const Color.fromARGB(
                                                       255, 101, 188, 89),
                                                   width: 3.0)),
-                                          child: Image.asset(
-                                              'images/static3.png'),
+                                          child:
+                                              Image.asset('images/static3.png'),
                                         ),
                                       ],
                                     ),
@@ -254,7 +256,11 @@ class Tarefa3PageState extends State<Tarefa3Page> {
                                                 top: 20.0),
                                             child: Align(
                                               alignment: Alignment.bottomRight,
-                                              child: ElevatedButton.icon(style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.green)),
+                                              child: ElevatedButton.icon(
+                                                style: ButtonStyle(
+                                                    backgroundColor:
+                                                        MaterialStateProperty
+                                                            .all(Colors.green)),
                                                 label: const Text(
                                                   'Seguem as tarefas',
                                                   style: TextStyle(
@@ -269,10 +275,9 @@ class Tarefa3PageState extends State<Tarefa3Page> {
                                                 ),
                                                 onPressed: () {
                                                   Navigator.of(context).push(
-                                                    MaterialPageRoute(
-                                                      builder: ((context) => const TaskThree())
-                                                    )
-                                                  );
+                                                      MaterialPageRoute(
+                                                          builder: ((context) =>
+                                                              const TaskThree())));
                                                 },
                                               ),
                                             ),
@@ -304,26 +309,29 @@ class _TaskThreeState extends State<TaskThree> {
   @override
   Widget build(BuildContext context) {
     FirebaseAuth auth = FirebaseAuth.instance;
-      tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV3").then((l){
-        if(l.length == 0){
-          for(int i = 1; i<6;i++){
-            Task t = Task();
-            t.user = auth.currentUser!.uid;
-            t.task = 'TASK$i';
-            t.group = 'DEV3';
-            t.status = 'I';
-            tStore.task = 'TASK$i';
-            tStore.group = 'DEV3';
-            tStore.status = 'I';
-            t.date = DateTime.now().toString();
+    tStore.getTasksFromFirebase(auth.currentUser!.uid, "DEV3").then((l) {
+      if (l.length == 0) {
+        for (int i = 1; i < 6; i++) {
+          Task t = Task();
+          t.user = auth.currentUser!.uid;
+          t.task = 'TASK$i';
+          t.group = 'DEV3';
+          t.status = 'I';
+          tStore.task = 'TASK$i';
+          tStore.group = 'DEV3';
+          tStore.status = 'I';
+          t.date = DateTime.now().toString();
 
-            // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
-          }
+          // tStore.uploadTaskToFirebase(widget.uid!, widget.task!, );
         }
-      });
+      }
+    });
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Tarefa 3",style: TextStyle(fontWeight: FontWeight.w800, color: Colors.white),),
+        title: const Text(
+          "Tarefa 3",
+          style: TextStyle(fontWeight: FontWeight.w800, color: Colors.white),
+        ),
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.green,
@@ -390,7 +398,8 @@ class _TaskThreeState extends State<TaskThree> {
                             ],
                           ),
                           textCTRST(
-                            stg1: '\u2055 ${store.controllerKidName.text} deverá ',
+                            stg1:
+                                '\u2055 ${store.controllerKidName.text} deverá ',
                             stg2: 'movimentar a cabeça',
                             stg3:
                                 ' de forma voluntária de um lado para o outro. Estimule ${store.controllerKidName.text}'
@@ -420,7 +429,7 @@ class _TaskThreeState extends State<TaskThree> {
                           const SizedBox(
                             height: 10.0,
                           ),
-                          Radin(task:'DEV3TASK1'),
+                          Radin(task: 'DEV3TASK1'),
 
                           const SizedBox(
                             height: 60.0,
@@ -450,7 +459,7 @@ class _TaskThreeState extends State<TaskThree> {
                           const SizedBox(
                             height: 10.0,
                           ),
-                          Radin(task:'DEV3TASK2'),
+                          Radin(task: 'DEV3TASK2'),
 
                           const SizedBox(
                             height: 60.0,
@@ -482,7 +491,7 @@ class _TaskThreeState extends State<TaskThree> {
                           const SizedBox(
                             height: 10.0,
                           ),
-                          Radin(task:'DEV3TASK3'),
+                          Radin(task: 'DEV3TASK3'),
 
                           const SizedBox(
                             height: 60.0,
@@ -515,7 +524,7 @@ class _TaskThreeState extends State<TaskThree> {
                           const SizedBox(
                             height: 10.0,
                           ),
-                          Radin(task:'DEV3TASK4'),
+                          Radin(task: 'DEV3TASK4'),
 
                           const SizedBox(
                             height: 60.0,
@@ -544,7 +553,7 @@ class _TaskThreeState extends State<TaskThree> {
                           const SizedBox(
                             height: 10.0,
                           ),
-                          Radin(task:'DEV3TASK5'),
+                          Radin(task: 'DEV3TASK5'),
 
                           const SizedBox(
                             height: 60.0,

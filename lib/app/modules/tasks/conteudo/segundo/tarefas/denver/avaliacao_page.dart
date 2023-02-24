@@ -5,6 +5,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 
 import '../../../components.dart';
+import '../../../conteudo_store.dart';
 import '../../../denver/charts/charts.dart';
 import '../../segundo_store.dart';
 import 'denverLG.dart';
@@ -17,7 +18,14 @@ class AvaliacaoPage extends StatefulWidget {
 }
 class AvaliacaoPageState extends State<AvaliacaoPage> {
   final SegundoStore store = Modular.get();
+  final ConteudoStore cStore = Modular.get();
   Map? answers;
+
+  @override
+  void initState() {
+    cStore.answersToNull();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +37,7 @@ class AvaliacaoPageState extends State<AvaliacaoPage> {
         color: Colors.green,
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-        child: Observer(builder: (_) {return Column(
+        child: Column(
           children: [
             Expanded(child: LayoutBuilder(
               builder: (_, constraints) => SingleChildScrollView(
@@ -83,8 +91,7 @@ class AvaliacaoPageState extends State<AvaliacaoPage> {
               )
             ))
           ],
-        );
-  }),
+        ),
     ));
   }
 }
