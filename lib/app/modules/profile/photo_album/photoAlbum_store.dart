@@ -44,7 +44,7 @@ abstract class _PhotoAlbumStoreBase with Store {
     idLogado = usuarioLogado!.uid;
 
     QuerySnapshot<Map<String, dynamic>> snap = await db.collection("users").doc(idLogado).collection("images").get();
-    Map? dados = snap.docs as Map?;
+    Map<String, dynamic>? dados = snap.docs as Map<String, dynamic>?;
     selectedFiles = dados!["images"];
   }
 

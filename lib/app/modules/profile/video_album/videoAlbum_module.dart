@@ -5,6 +5,8 @@ import 'package:universo_prematuro_v2/app/modules/profile/video_album/videoAlbum
 import 'package:flutter_modular/flutter_modular.dart';
 
 class VideoAlbumModule extends Module {
+
+
   @override
   final List<Bind> binds = [
     Bind.lazySingleton((i) => VideoAlbumStore()),
@@ -12,6 +14,6 @@ class VideoAlbumModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute('/', child: (_, args) => const VideoAlbumPage()),
+    ChildRoute('/', child: (_, args) => VideoAlbumPage()),
   ];
 }

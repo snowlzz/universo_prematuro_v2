@@ -39,10 +39,10 @@ class PhotoAlbumPageState extends State<PhotoAlbumPage> {
                               crossAxisCount: 4,
                               mainAxisSpacing: 10,
                               crossAxisSpacing: 10,
-                              childAspectRatio: 1,
+                              childAspectRatio: 0.5,
                               children: snapshots.data!.docs
                                   .map((e) => Image.network(e.get("url")))
-                                  .toList(),
+                                  .toList()
                             )
                           : Container();
                 }))

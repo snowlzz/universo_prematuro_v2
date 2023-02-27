@@ -25,6 +25,6 @@ class ProfileModule extends Module {
     ChildRoute('/', child: (_, args) => const ProfilePage()),
     ChildRoute('/edit', child: (_, args) => const EditPage()),
     ChildRoute('/photo', child: (_, args) => const PhotoAlbumPage()),
-    ChildRoute('/video', child: (_, args) => const VideoAlbumPage()),
+    ChildRoute('/video', child: (_, args) => VideoAlbumPage()),
   ];
 }

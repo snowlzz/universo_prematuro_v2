@@ -2,12 +2,16 @@
 
 import 'dart:io';
 
+import 'package:camera/camera.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mobx/mobx.dart';
+import 'package:video_player/video_player.dart';
 // import 'package:file_picker/file_picker.dart';
 
 part 'videoAlbum_store.g.dart';
@@ -95,7 +99,91 @@ abstract class _VideoAlbumStoreBase with Store {
     db.collection("users").doc(idLogado).collection("video").add({"url": videoUrl}).whenComplete(() => print("$videoUrl is save"));
   }
 
+}
+  
+  
+  
+  
+  
+  
+  
+
   
 
 
-}
+
+
+
+
+// CameraController _cameraController = CameraController(CameraDescription(name: 'camera', lensDirection: CameraLensDirection.external, sensorOrientation: 2), ResolutionPreset.max);
+  // late VideoPlayerController _videoPlayerController;
+
+  // @observable
+  // bool isRecording = false;
+
+  // @observable
+  // bool isVideoSelected = false;
+
+  // @observable
+  // String? videoPath;
+
+  // @action
+  // Future<void> toggleRecording() async {
+  //   if (isRecording) {
+  //     await _cameraController.stopVideoRecording();
+  //     isRecording = false;
+  //   } else {
+  //     final path = '${DateTime.now().millisecondsSinceEpoch}.mp4';
+  //     await _cameraController.startVideoRecording();
+  //     videoPath = path;
+  //     isRecording = true;
+  //   }
+  // }
+
+  // @action
+  // Future<void> selectVideo() async {
+  //   final result = await FilePicker.platform.pickFiles(type: FileType.video);
+  //   if (result != null) {
+  //     final videoFile = File(result.files.single.path!);
+  //     _videoPlayerController = VideoPlayerController.file(videoFile);
+  //     await _videoPlayerController.initialize();
+  //     isVideoSelected = true;
+  //   }
+  // }
+
+  // void initCameraController(CameraController cameraController) {
+  //   _cameraController = cameraController;
+  // }
+
+  // void disposeCameraController() {
+  //   _cameraController.dispose();
+  // }
+
+  // void disposeVideoPlayerController() {
+  //   _videoPlayerController.dispose();
+  // }
+
+  // Widget getCameraPreview() {
+  //   return Observer(
+  //     builder: (_) {
+  //       if (_cameraController == null || !_cameraController.value.isInitialized) {
+  //         return Container();
+  //       }
+  //       return CameraPreview(_cameraController);
+  //     },
+  //   );
+  // }
+
+  // Widget getVideoPlayer() {
+  //   return Observer(
+  //     builder: (_) {
+  //       if (_videoPlayerController == null || !_videoPlayerController.value.isInitialized) {
+  //         return Container();
+  //       }
+  //       return AspectRatio(
+  //         aspectRatio: _videoPlayerController.value.aspectRatio,
+  //         child: VideoPlayer(_videoPlayerController),
+  //       );
+  //     },
+  //   );
+  // }

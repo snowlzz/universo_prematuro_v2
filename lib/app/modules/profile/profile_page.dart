@@ -31,21 +31,28 @@ class ProfilePageState extends State<ProfilePage>
 
   @override
   void initState() {
-    _animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 500))
-      ..addListener(() {
-        setState(() {});
-      });
+    _animationController =
+        AnimationController(vsync: this, duration: const Duration(milliseconds: 500))
+          ..addListener(() {
+            setState(() {});
+          });
 
     _animationIcon =
         Tween<double>(begin: 0.0, end: 1.0).animate(_animationController);
 
+        
+
     _translateButton = Tween<double>(begin: _fabHeight, end: -14.0).animate(
         CurvedAnimation(
-            parent: _animationController,
-            curve: Interval(0.0, 0.75, curve: _curve)));
+            parent: _animationController, curve: Interval(0.0, 0.75, curve: _curve)));
     eStore.recoverDataFromFirebase();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
   }
 
   Widget buttonPhoto() {
@@ -57,7 +64,6 @@ class ProfilePageState extends State<ProfilePage>
       child: const Icon(Icons.photo_camera),
     );
   }
-
   Widget buttonVideo() {
     return FloatingActionButton(
       onPressed: () {
@@ -67,23 +73,23 @@ class ProfilePageState extends State<ProfilePage>
       child: const Icon(Icons.video_camera_back_outlined),
     );
   }
-
+  
   Widget buttonToggle() {
     return FloatingActionButton(
       onPressed: animate,
       tooltip: "add",
-      child: AnimatedIcon(
-          icon: AnimatedIcons.menu_arrow, progress: _animationIcon),
+      child: AnimatedIcon(icon: AnimatedIcons.menu_arrow, progress: _animationIcon),
     );
   }
 
   void animate() {
-    if (!isOpened) {
-      _animationController.forward();
-    } else {
-      _animationController.reverse();
-    }
-    isOpened = !isOpened;
+   if(!isOpened) {
+     _animationController.forward();
+   } else {
+     _animationController.reverse();
+   }
+  isOpened = !isOpened;
+
   }
 
   @override

@@ -2,6 +2,7 @@
 
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../producoes/producoes_store.dart';
 import '../profile/edit/edit_page.dart';
 import '../profile/edit/edit_store.dart';
 import '../profile/edit/photo_store.dart';
@@ -17,6 +18,7 @@ class HomeModule extends Module {
     Bind.lazySingleton((i) => NavBarStore()),
     Bind.singleton((i) => EditStore()),
     Bind.lazySingleton((i) => PhotoStore()),
+    Bind.lazySingleton((i) => ProducoesStore()),
   ];
 
   @override

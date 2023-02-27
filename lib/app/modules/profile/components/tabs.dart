@@ -43,10 +43,11 @@ class GalleryTabs extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * .8,
                 child: TabBarView(
                   controller: store.tabController,
-                  children: const [
+                  children: [
                     PhotoAlbumPage(),
-
                     VideoAlbumPage()
+
+                    // VideoListItem()
                     
                     
                     // VideoAlbumPage()

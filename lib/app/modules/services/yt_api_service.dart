@@ -1,88 +1,90 @@
-// // ignore_for_file: depend_on_referenced_packages
+// ignore_for_file: depend_on_referenced_packages
 
-// import 'dart:convert';
-// import 'dart:io';
-// import 'package:http/http.dart' as http;
-// import 'package:universo_prematuro_v2/app/modules/models/channel_model.dart';
-// import 'package:universo_prematuro_v2/app/modules/models/video_model.dart';
-// import 'package:universo_prematuro_v2/app/modules/utilities/keys.dart';
+import 'dart:convert';
+import 'dart:io';
+import 'package:http/http.dart' as http;
+import 'package:universo_prematuro_v2/app/modules/models/channel_model.dart';
+import 'package:universo_prematuro_v2/app/modules/models/video_model.dart';
 
 
-// class APIService {
-//   APIService._instantiate();
+import '../../utilities/youtube_key.dart';
 
-//   static final APIService instance = APIService._instantiate();
 
-//   final String _baseUrl = 'www.googleapis.com';
-//   String _nextPageToken = '';
+class APIService {
+  APIService._instantiate();
 
-//   Future<Channel> fetchChannel({String? channelId}) async {
-//     Map<String, String> parameters = {
-//       'part': 'snippet, contentDetails, statistics',
-//       'id': channelId!,
-//       'key': API_KEY,
-//     };
-//     Uri uri = Uri.https(
-//       _baseUrl,
-//       '/youtube/v3/channels',
-//       parameters,
-//     );
-//     Map<String, String> headers = {
-//       HttpHeaders.contentTypeHeader: 'application/json',
-//     };
+  static final APIService instance = APIService._instantiate();
 
-//     // Get Channel
-//     var response = await http.get(uri, headers: headers);
-//     if (response.statusCode == 200) {
-//       Map<String, dynamic> data = json.decode(response.body)['items'][0];
-//       Channel channel = Channel.fromMap(data);
+  final String _baseUrl = 'www.googleapis.com';
+  String _nextPageToken = '';
 
-//       // Fetch first batch of videos from uploads playlist
-//       channel.videos = await fetchVideosFromPlaylist(
-//         playlistId: channel.uploadPlaylistId!,
-//       );
-//       return channel;
-//     } else {
-//       throw json.decode(response.body)['error']['message'];
-//     }
-//   }
+  Future<Channel> fetchChannel({String? channelId}) async {
+    Map<String, String> parameters = {
+      'part': 'snippet, contentDetails, statistics',
+      'id': channelId!,
+      'key': YOUTUBE_API_KEY,
+    };
+    Uri uri = Uri.https(
+      _baseUrl,
+      '/youtube/v3/channels',
+      parameters,
+    );
+    Map<String, String> headers = {
+      HttpHeaders.contentTypeHeader: 'application/json',
+    };
 
-//   Future<List<Video>> fetchVideosFromPlaylist({String? playlistId}) async {
-//     Map<String, String> parameters = {
-//       'part': 'snippet',
-//       'playlistId': playlistId!,
-//       'maxResults': '8',
-//       'pageToken': _nextPageToken,
-//       'key': API_KEY,
-//     };
-//     Uri uri = Uri.https(
-//       _baseUrl,
-//       '/youtube/v3/playlistItems',
-//       parameters,
-//     );
-//     Map<String, String> headers = {
-//       HttpHeaders.contentTypeHeader: 'application/json',
-//     };
+    // Get Channel
+    var response = await http.get(uri, headers: headers);
+    if (response.statusCode == 200) {
+      Map<String, dynamic> data = json.decode(response.body)['items'][0];
+      Channel channel = Channel.fromMap(data);
 
-//     // Get Playlist Videos
-//     var response = await http.get(uri, headers: headers);
-//     if (response.statusCode == 200) {
-//       var data = json.decode(response.body);
+      // Fetch first batch of videos from uploads playlist
+      channel.videos = await fetchVideosFromPlaylist(
+        playlistId: channel.uploadPlaylistId!,
+      );
+      return channel;
+    } else {
+      throw json.decode(response.body)['error']['message'];
+    }
+  }
 
-//       _nextPageToken = data['nextPageToken'] ?? '';
-//       List<dynamic> videosJson = data['items'];
+  Future<List<Video>> fetchVideosFromPlaylist({String? playlistId}) async {
+    Map<String, String> parameters = {
+      'part': 'snippet',
+      'playlistId': playlistId!,
+      'maxResults': '8',
+      'pageToken': _nextPageToken,
+      'key': YOUTUBE_API_KEY,
+    };
+    Uri uri = Uri.https(
+      _baseUrl,
+      '/youtube/v3/playlistItems',
+      parameters,
+    );
+    Map<String, String> headers = {
+      HttpHeaders.contentTypeHeader: 'application/json',
+    };
 
-//       // Fetch first eight videos from uploads playlist
-//       List<Video> videos = [];
-//       for (var json in videosJson) {
-//         videos.add(
-//           Video.fromMap(json['snippet']),
-//         );
-//       }
-//       return videos;
-//     } else {
-//       throw json.decode(response.body)['error']['message'];
-//     }
-//   }
+    // Get Playlist Videos
+    var response = await http.get(uri, headers: headers);
+    if (response.statusCode == 200) {
+      var data = json.decode(response.body);
 
-// }
+      _nextPageToken = data['nextPageToken'] ?? '';
+      List<dynamic> videosJson = data['items'];
+
+      // Fetch first eight videos from uploads playlist
+      List<Video> videos = [];
+      for (var json in videosJson) {
+        videos.add(
+          Video.fromMap(json['snippet']),
+        );
+      }
+      return videos;
+    } else {
+      throw json.decode(response.body)['error']['message'];
+    }
+  }
+
+}
