@@ -79,7 +79,7 @@ class AppModule extends Module {
     Bind.lazySingleton((i) => LgStore()), 
     Bind.lazySingleton((i) => MgStore()), 
     Bind.lazySingleton((i) => MfStore()), 
-    Bind.instance(APIService.instance)
+    // Bind.instance(APIService.instance)
 
   ];
 

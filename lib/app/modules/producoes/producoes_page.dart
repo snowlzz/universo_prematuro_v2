@@ -1,11 +1,9 @@
-// ignore_for_file: unnecessary_null_comparison, prefer_final_fields, unused_local_variable, no_leading_underscores_for_local_identifiers
-
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:universo_prematuro_v2/app/modules/producoes/producoes_store.dart';
 import 'package:flutter/material.dart';
 import 'package:universo_prematuro_v2/app/modules/producoes/video_player.dart';
-// ignore: depend_on_referenced_packages
-
+import 'package:universo_prematuro_v2/app/modules/services/yt_api_service.dart';
 
 import '../models/channel_model.dart';
 import '../models/video_model.dart';
@@ -20,24 +18,28 @@ class ProducoesPageState extends State<ProducoesPage> {
   final ProducoesStore store = Modular.get();
   Channel? _channel;
   bool _isLoading = false;
-
   
 
   @override
   void initState() {
-    store.initChannel(Video());
+    _initChannel();
     // Channel _channel;
     super.initState();
-    
   }
 
-  
+  _initChannel() async {
+    Channel channel = await APIService.instance.fetchChannel(channelId: 'UCI8fBFZtG6rwQfoQB-NfPuA');
+    setState(() {
+      _channel = channel;
+    });
+  }
 
   _buildVideo(Video video) {
     // String id = video.id!;
+    var id = video.id;
     return GestureDetector(
       onTap: () => Navigator.push(context, MaterialPageRoute(
-        builder: (_) => VideoScreen(id: '${video.id}'),
+        builder: (_) => VideoScreen(id: video.id),
       )),
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -109,7 +111,7 @@ class ProducoesPageState extends State<ProducoesPage> {
 
                 ),
                 Text(
-                  '${_channel!.subscriberCount} Inscritos'
+                  '${_channel!.subscriberCount} subscribers'
                 )
               ],
             ),
@@ -117,6 +119,16 @@ class ProducoesPageState extends State<ProducoesPage> {
         ],
       ),
     );
+  }
+
+  _loadMoreVideos() async {
+    _isLoading = true;
+    List<Video> moreVideos = await APIService.instance.fetchVideosFromPlaylist(playlistId: _channel!.uploadPlaylistId ?? '');
+    List<Video> allVideos = _channel!.videos!..addAll(moreVideos);
+    setState(() {
+      _channel!.videos = allVideos;
+    });
+    _isLoading = false;
   }
 
   @override
@@ -129,19 +141,17 @@ class ProducoesPageState extends State<ProducoesPage> {
          NotificationListener<ScrollNotification>(
           onNotification: (ScrollNotification scrollDetails) {
             if (!_isLoading && _channel!.videos!.length != int.parse(_channel!.videoCount!) && scrollDetails.metrics.pixels == scrollDetails.metrics.maxScrollExtent) {
-            store.loadMorevideos();
+              _loadMoreVideos();
             }
             return false;
           },
            child: ListView.builder(
-            itemCount: _channel!.videos!.length,
-            itemBuilder: (BuildContext context, index) {
-              // YoutubePlayerController ytController = lYTC[index];
-            
+            itemCount:  1 + _channel!.videos!.length,
+            itemBuilder: (BuildContext context, int index) {
               if (index == 0){
                 return _buildProfileInfo();
               }
-              Video video = _channel!.videos![index-1] ;
+              Video video = _channel!.videos![index - 1];
               return _buildVideo(video);
 
             }

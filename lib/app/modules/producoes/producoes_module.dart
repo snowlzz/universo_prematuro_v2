@@ -8,7 +8,7 @@ class ProducoesModule extends Module {
   @override
   final List<Bind> binds = [
     Bind.lazySingleton((i) => ProducoesStore()),
-    Bind.instance(APIService.instance)
+    // Bind.instance(APIService.instance)
   ];
 
   @override

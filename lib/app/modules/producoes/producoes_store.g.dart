@@ -41,6 +41,38 @@ mixin _$ProducoesStore on _ProducoesStoreBase, Store {
     });
   }
 
+  late final _$channelIdAtom =
+      Atom(name: '_ProducoesStoreBase.channelId', context: context);
+
+  @override
+  String get channelId {
+    _$channelIdAtom.reportRead();
+    return super.channelId;
+  }
+
+  @override
+  set channelId(String value) {
+    _$channelIdAtom.reportWrite(value, super.channelId, () {
+      super.channelId = value;
+    });
+  }
+
+  late final _$_videosAtom =
+      Atom(name: '_ProducoesStoreBase._videos', context: context);
+
+  @override
+  ObservableList<Video> get _videos {
+    _$_videosAtom.reportRead();
+    return super._videos;
+  }
+
+  @override
+  set _videos(ObservableList<Video> value) {
+    _$_videosAtom.reportWrite(value, super._videos, () {
+      super._videos = value;
+    });
+  }
+
   late final _$controllerAtom =
       Atom(name: '_ProducoesStoreBase.controller', context: context);
 
@@ -57,17 +89,10 @@ mixin _$ProducoesStore on _ProducoesStoreBase, Store {
     });
   }
 
-  late final _$loadMorevideosAsyncAction =
-      AsyncAction('_ProducoesStoreBase.loadMorevideos', context: context);
-
-  @override
-  Future loadMorevideos() {
-    return _$loadMorevideosAsyncAction.run(() => super.loadMorevideos());
-  }
-
   @override
   String toString() {
     return '''
+channelId: ${channelId},
 controller: ${controller}
     ''';
   }
